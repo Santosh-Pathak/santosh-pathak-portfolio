@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCode, FaTrophy, FaCertificate } from 'react-icons/fa';
-import { SiGraphicera } from 'react-icons/si';
+// import { SiGraphicera } from 'react-icons/si';
 
 export default function About() {
   const achievements = [
