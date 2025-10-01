@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaCode, FaRocket, FaUsers, FaChartLine } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaCode, FaRocket } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiRedis, SiJenkins, SiAxios, SiTypescript, SiNextdotjs, SiMicrosoftazure, SiTerraform, SiGrafana } from 'react-icons/si';
 
 export default function Projects() {

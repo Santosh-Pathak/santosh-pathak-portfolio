@@ -46,62 +46,6 @@ export default function Hero() {
   const [terminal5IsDeleting, setTerminal5IsDeleting] = useState(false);
   const [currentCommand5Index, setCurrentCommand5Index] = useState(0);
 
-  const terminalCommands = [
-    'npm install react',
-    'git commit -m "feat: add new feature"',
-    'docker build -t myapp .',
-    'kubectl apply -f deployment.yaml',
-    'npm run build',
-    'git push origin main',
-    'npm test',
-    'docker-compose up',
-    'terraform apply',
-    'npm start'
-  ];
-
-  const terminal2Commands = [
-    'npm run build',
-    'webpack --mode production',
-    'tsc --build',
-    'next build',
-    'npm run compile',
-    'rollup --config',
-    'vite build',
-    'parcel build src/index.html'
-  ];
-
-  const terminal3Commands = [
-    'git status',
-    'git add .',
-    'git commit -m "fix: bug"',
-    'git push origin main',
-    'git pull origin main',
-    'git branch feature',
-    'git checkout main',
-    'git merge feature'
-  ];
-
-  const terminal4Commands = [
-    'docker ps',
-    'docker build -t app .',
-    'docker run -p 3000:3000 app',
-    'docker-compose up',
-    'docker logs container',
-    'docker exec -it container bash',
-    'docker stop container',
-    'docker rm container'
-  ];
-
-  const terminal5Commands = [
-    'npm test',
-    'jest --watch',
-    'npm run test:coverage',
-    'cypress run',
-    'npm run test:e2e',
-    'jest --updateSnapshot',
-    'npm run test:unit',
-    'vitest run'
-  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -123,6 +67,18 @@ export default function Hero() {
 
   // Background terminal typewriter effect
   useEffect(() => {
+    const terminalCommands = [
+      'npm install react',
+      'git commit -m "feat: add new feature"',
+      'docker build -t myapp .',
+      'kubectl apply -f deployment.yaml',
+      'npm run build',
+      'git push origin main',
+      'npm test',
+      'docker-compose up',
+      'terraform apply',
+      'npm start'
+    ];
     const currentCommand = terminalCommands[currentCommandIndex];
     const timer = setTimeout(() => {
       if (!terminalIsDeleting && terminalIndex < currentCommand.length) {
@@ -140,10 +96,20 @@ export default function Hero() {
     }, terminalIsDeleting ? 30 : 80);
 
     return () => clearTimeout(timer);
-  }, [terminalIndex, terminalIsDeleting, currentCommandIndex, terminalCommands]);
+  }, [terminalIndex, terminalIsDeleting, currentCommandIndex]);
 
   // Terminal 2 typewriter effect
   useEffect(() => {
+    const terminal2Commands = [
+      'npm run build',
+      'webpack --mode production',
+      'tsc --build',
+      'next build',
+      'npm run compile',
+      'rollup --config',
+      'vite build',
+      'parcel build src/index.html'
+    ];
     const currentCommand = terminal2Commands[currentCommand2Index];
     const timer = setTimeout(() => {
       if (!terminal2IsDeleting && terminal2Index < currentCommand.length) {
@@ -161,10 +127,20 @@ export default function Hero() {
     }, terminal2IsDeleting ? 30 : 80);
 
     return () => clearTimeout(timer);
-  }, [terminal2Index, terminal2IsDeleting, currentCommand2Index, terminal2Commands]);
+  }, [terminal2Index, terminal2IsDeleting, currentCommand2Index]);
 
   // Terminal 3 typewriter effect
   useEffect(() => {
+    const terminal3Commands = [
+      'git status',
+      'git add .',
+      'git commit -m "fix: bug"',
+      'git push origin main',
+      'git pull origin main',
+      'git branch feature',
+      'git checkout main',
+      'git merge feature'
+    ];
     const currentCommand = terminal3Commands[currentCommand3Index];
     const timer = setTimeout(() => {
       if (!terminal3IsDeleting && terminal3Index < currentCommand.length) {
@@ -182,10 +158,20 @@ export default function Hero() {
     }, terminal3IsDeleting ? 30 : 80);
 
     return () => clearTimeout(timer);
-  }, [terminal3Index, terminal3IsDeleting, currentCommand3Index, terminal3Commands]);
+  }, [terminal3Index, terminal3IsDeleting, currentCommand3Index]);
 
   // Terminal 4 typewriter effect
   useEffect(() => {
+    const terminal4Commands = [
+      'docker ps',
+      'docker build -t app .',
+      'docker run -p 3000:3000 app',
+      'docker-compose up',
+      'docker logs container',
+      'docker exec -it container bash',
+      'docker stop container',
+      'docker rm container'
+    ];
     const currentCommand = terminal4Commands[currentCommand4Index];
     const timer = setTimeout(() => {
       if (!terminal4IsDeleting && terminal4Index < currentCommand.length) {
@@ -203,10 +189,20 @@ export default function Hero() {
     }, terminal4IsDeleting ? 30 : 80);
 
     return () => clearTimeout(timer);
-  }, [terminal4Index, terminal4IsDeleting, currentCommand4Index, terminal4Commands]);
+  }, [terminal4Index, terminal4IsDeleting, currentCommand4Index]);
 
   // Terminal 5 typewriter effect
   useEffect(() => {
+    const terminal5Commands = [
+      'npm test',
+      'jest --watch',
+      'npm run test:coverage',
+      'cypress run',
+      'npm run test:e2e',
+      'jest --updateSnapshot',
+      'npm run test:unit',
+      'vitest run'
+    ];
     const currentCommand = terminal5Commands[currentCommand5Index];
     const timer = setTimeout(() => {
       if (!terminal5IsDeleting && terminal5Index < currentCommand.length) {
@@ -224,7 +220,7 @@ export default function Hero() {
     }, terminal5IsDeleting ? 30 : 80);
 
     return () => clearTimeout(timer);
-  }, [terminal5Index, terminal5IsDeleting, currentCommand5Index, terminal5Commands]);
+  }, [terminal5Index, terminal5IsDeleting, currentCommand5Index]);
 
   // Floating tech icons data
   const floatingIcons = [
