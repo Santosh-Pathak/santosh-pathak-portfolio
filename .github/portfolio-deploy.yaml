@@ -1,0 +1,80 @@
+
+# name : portfolio-deploy
+
+# on:
+#   push:
+#     branches: [main]
+
+# permissions:
+#   pages: write
+#   id-token: write 
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deploy-pages.outputs.page_url }}
+
+
+#     steps: 
+#     #get access to your portfolio code via predefined/pre-built  action
+#       - name: checkout code
+#         uses: actions/checkout@v4
+#     #setup  github pages via predefined/pre-built  action
+#       - name: setup github pages
+#         uses: actions/configure-pages@v4
+#     #static code artifacts
+#       - name : upload static files
+#         uses : actions/upload-pages-artifact@v4
+#     #deploy to github pages via predefined/pre-built  action
+#       - name: deploy to github pages
+#         uses: actions/deploy-pages@v4 
+
+
+name: portfolio-deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy-pages.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # Adjust to match your project's Node version if needed
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build && npm run export  # Assumes your package.json has "export": "next export"
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./out  # Upload the exported static files from the 'out' directory
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+      
