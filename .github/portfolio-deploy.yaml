@@ -37,7 +37,7 @@ name: portfolio-deploy
 
 on:
   push:
-    branches: [main]
+    branches: [master,deploy]
 
 permissions:
   pages: write
